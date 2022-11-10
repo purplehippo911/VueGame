@@ -11,12 +11,11 @@
   <body>
     <main id="app">
       <div class="container row">
-        <canvas id="game">
-          <div id="player"></div>
+        <section id="game">
+          <div id="player" @click="playerJump" ref="player"></div>
           <div id="block"></div>
-        </canvas>
-        <p>{{message}}</p>
-      </div>
+        </section>
+      </section>
     </main>
 
     <script type="module">
@@ -28,6 +27,17 @@
             message: "Hello Vue!",
           };
         },
+        methods: {
+          playerJump() {
+            if(this.$refs.player.classList != "animate") {
+              this.$refs.player.classList.add("animate");
+              setTimeout(() => {
+                this.$refs.player.classList.remove("animate");
+              }, 1000)
+            }
+
+          }
+        }
       }).mount("#app");
     </script>
   </body>

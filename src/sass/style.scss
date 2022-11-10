@@ -10,11 +10,12 @@ body {
     margin:0;
     padding:0;
     background:aliceblue;
+    overflow-x:hidden;
 }
 
-#app {
-    padding:5rem;
-}
+// #app {
+//     padding:5rem;
+// }
 
 .container {
     width:100%;
@@ -25,6 +26,49 @@ body {
 
 #game {
     width:100%;
-    padding:10rem;
+    height:300px;
     background:white;
+    display:flex;
+    gap:2rem;
+    align-items:flex-end;
+    position:relative;
 }
+
+#player {
+    width: 10%;
+    background: green;
+    padding: 2rem 0.5rem;
+    position: absolute;
+}
+
+.animate {
+    animation:jump 1s;
+  }
+
+@keyframes jump {
+    0%{top:236px}
+    30%{top:190px} 
+    60%{top:190px} 
+    100%{top:236px}
+}
+
+#block {
+    width:20%;
+    background:yellow;
+    padding:1rem;
+    position:absolute;
+    animation:blockMove 2s infinite linear;    
+}
+
+@keyframes blockMove {
+    0%{left:650px}
+    10%{left:550px}
+    20%{left:450px}
+    40%{left:350px}
+    60%{left:250px}
+    80%{left:150px}
+    90%{left:50px}
+    100%{left:0px}
+}
+
+
