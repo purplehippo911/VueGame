@@ -1,4 +1,9 @@
+@use "_animation"
+;
 $Black : #000000;
+$LightGrey:rgba(254, 230, 230, 0.782);
+$Yellow:#cdf547;
+$White:aliceblue;
 
 *, *::before, *::after {
     box-sizing:border-box;
@@ -6,10 +11,10 @@ $Black : #000000;
 
 body {
     font-size:20px;
-    color:blue;
+    color:$Yellow;
     margin:0;
     padding:0;
-    background:aliceblue;
+    background:$White;
     overflow-x:hidden;
 }
 
@@ -22,21 +27,28 @@ body {
     max-width:800px;
     padding:2rem;
     margin:0 auto;
-    background:black;
+    background:$Black;
+    border:20px solid $Black;
+}
+
+h1 {
+    font-size:1.9em;
 }
 
 #game {
     width:100%;
     height:300px;
-    background:white;
+    background:$White;
     display:flex;
     gap:2rem;
     align-items:flex-end;
+    justify-content: center;
     position:relative;
 }
 
 #player {
     max-width:20%;
+    top:252px;
     width:50px;
     background: green;
     padding: 1.5rem .5rem;
@@ -47,31 +59,67 @@ body {
     animation:jump 1s;
   }
 
-@keyframes jump {
-    0%{top:236px}
-    30%{top:190px} 
-    60%{top:190px} 
-    100%{top:236px}
+  
+  #block {
+      width:20%;
+      background:$Yellow;
+      padding:1rem;
+      border-radius:20px;
+      position:absolute;
+      left:650px;
+      animation:blockMove 2s infinite linear;    
+      display:none;
+    }
+    
+// .animate-block {
+//     display:block;
+// }
+
+.start-popup {
+    width:100%;
+    height:100%;
+    background:$White;
+    padding: 2rem;
+    margin: 0 auto;
+    display:flex;
+    justify-content: center;
+    z-index:2;
+    opacity:.7;
+    .container {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+    }
+    .start-button {
+        width:50%;
+        padding:1rem 0;
+        background:$White;
+        border:none;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 20px;
+        color:$Black;
+        &:hover {
+            background:none;
+            color:$White;
+            &::before, &::after {
+                width:50%;
+                padding:.2rem;
+                content:"";
+                background:$White;
+            }
+        }
+    }
 }
 
-#block {
-    width:20%;
-    background:yellow;
-    padding:1rem;
-    border-radius:20px;
-    position:absolute;
-    animation:blockMove 2s infinite linear;    
+.close {
+    display:hidden;
+    opacity:0;
+    height: 0;
+    padding:0;
 }
-
-@keyframes blockMove {
-    0%{left:650px}
-    10%{left:550px}
-    20%{left:450px}
-    40%{left:350px}
-    60%{left:250px}
-    80%{left:150px}
-    90%{left:50px}
-    100%{left:0px}
-}
-
 

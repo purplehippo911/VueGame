@@ -1,0 +1,18 @@
+
+@keyframes jump {
+    0%{top:236px}
+    30%{top:190px} 
+    60%{top:190px} 
+    100%{top:236px}
+}
+
+@keyframes blockMove {
+    0%{left:650px}
+    10%{left:550px}
+    20%{left:450px}
+    40%{left:350px}
+    60%{left:250px}
+    80%{left:150px}
+    90%{left:50px}
+    100%{left:0px}
+}
