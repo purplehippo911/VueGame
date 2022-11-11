@@ -13,12 +13,13 @@ body {
     overflow-x:hidden;
 }
 
-// #app {
-//     padding:5rem;
-// }
+#app {
+    padding:5rem;
+}
 
 .container {
     width:100%;
+    max-width:800px;
     padding:2rem;
     margin:0 auto;
     background:black;
@@ -35,9 +36,10 @@ body {
 }
 
 #player {
-    width: 10%;
+    max-width:20%;
+    width:50px;
     background: green;
-    padding: 2rem 0.5rem;
+    padding: 1.5rem .5rem;
     position: absolute;
 }
 
@@ -56,6 +58,7 @@ body {
     width:20%;
     background:yellow;
     padding:1rem;
+    border-radius:20px;
     position:absolute;
     animation:blockMove 2s infinite linear;    
 }
