@@ -1,9 +1,6 @@
-@use "_animation"
-;
-$Black : #000000;
-$LightGrey:rgba(254, 230, 230, 0.782);
-$Yellow:#cdf547;
-$White:aliceblue;
+@import "_animation";
+@import "_game";
+@import "_variables";
 
 *, *::before, *::after {
     box-sizing:border-box;
@@ -33,56 +30,20 @@ body {
 
 h1 {
     font-size:1.9em;
+    color:$Yellow;
+    margin-bottom:0;
 }
-
-#game {
-    width:100%;
-    height:300px;
-    background:$White;
-    display:flex;
-    gap:2rem;
-    align-items:flex-end;
-    justify-content: center;
-    position:relative;
-}
-
-#player {
-    max-width:20%;
-    top:252px;
-    width:50px;
-    background: green;
-    padding: 1.5rem .5rem;
-    position: absolute;
-}
-
-.animate {
-    animation:jump 1s;
-  }
-
-  
-  #block {
-      width:20%;
-      background:$Yellow;
-      padding:1rem;
-      border-radius:20px;
-      position:absolute;
-      left:650px;
-      animation:blockMove 2s infinite linear;    
-      display:none;
-    }
-    
-// .animate-block {
-//     display:block;
-// }
 
 .start-popup {
     width:100%;
     height:100%;
     background:$White;
-    padding: 2rem;
+    color:$White;
+    padding: 1rem;
     margin: 0 auto;
     display:flex;
     justify-content: center;
+    text-align:center;
     z-index:2;
     opacity:.7;
     .container {
@@ -92,7 +53,7 @@ h1 {
         align-items:center;
     }
     .start-button {
-        width:50%;
+        width:60%;
         padding:1rem 0;
         background:$White;
         border:none;
@@ -100,20 +61,19 @@ h1 {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        text-transform: uppercase;
+        font-weight: 600;
         text-align: center;
         border-radius: 20px;
         color:$Black;
+        z-index:2;
         &:hover {
-            background:none;
+            background:$Yellow;
             color:$White;
-            &::before, &::after {
-                width:50%;
-                padding:.2rem;
-                content:"";
-                background:$White;
-            }
+            
         }
     }
+   
 }
 
 .close {

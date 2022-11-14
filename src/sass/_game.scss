@@ -1,0 +1,41 @@
+@import "_variables";
+
+#game {
+    width:100%;
+    height:300px;
+    background:$White;
+    display:flex;
+    gap:2rem;
+    align-items:flex-end;
+    justify-content: center;
+    position:relative;
+    
+    #player {
+    max-width:20%;
+    top:252px;
+    width:50px;
+    background: green;
+    padding: 1.5rem .5rem;
+    position: absolute;
+}
+
+.animate {
+    animation:jump 1s;
+}
+
+
+#block {
+    width:20%;
+    background:$Yellow;
+    padding:1rem;
+    border-radius:20px;
+    position:absolute;
+    left:650px;
+    animation:blockMove 2s infinite linear;    
+      display:none;
+    }
+    
+    // .animate-block {
+        //     display:block;
+        // }
+}

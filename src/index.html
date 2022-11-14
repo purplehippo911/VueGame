@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VueGame</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="css/style.css" />
+    <base href="../main.js" />
   </head>
   <body>
     <main id="app">
@@ -16,74 +16,23 @@
           <div id="block" ref="block"></div>
           <div class="start-popup" ref="start">
             <div class="container row">
-              <h1>The flight from the blockbee</h1>
-              <button class="start-button" @click="start">Start</button>
+              <h1>{{title}}</h1>
+              <p>{{content}}</p>
+              <button class="start-button" @click="start" >{{buttonText}}</button>
             </div>
           </div>
         </section>
     </main>
     <audio ref="audio1" src="assets/uplifting-piano-mix-20673.mp3" autoplay loop></audio>
     <audio src=""></audio>
-    
-    
     <script type="module">
-      import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
-
-      createApp({
-        data() {
-          return {
-            message: "Hello Vue!",
-            i: 0
-          };
-        },
-        methods: {
-          start() {
-            this.$refs.start.classList.add("close");
-            this.$refs.block.style.display = "block";
-            // this.$refs.block.classList.add("animate-block");
-            this.endGame();
-
-          },
-          playerJump() {
-            if(this.$refs.player.classList != "animate") {
-              this.$refs.player.classList.add("animate");
-              setTimeout(() => {
-                this.$refs.player.classList.remove("animate");
-              }, 1000)
-            }
-          },
-          getPositions(elem) {
-            var pos = elem.getBoundingClientRect();
-            var posArray = [pos.left, pos.top];
-            return posArray;
-          },
-          comparePositions(p1, p2) {
-            var r1, r2;
-            if (p1[0] < 649.5 && p2[1] >= 285) {
-              r1 = p1;
-              r2 = p2;
-              this.$refs.block.style.animation = "none";
-              console.log("you lost");
-              alert("u lose.");
-            } else {
-              r1 = p2;
-              r2 = p1;
-              console.log("didnt work")
-            }
-          },
-          endGame() {
-
-            setInterval(() => {
-              let playerTop = this.getPositions(this.$refs.player);
-              let blockLeft = this.getPositions(this.$refs.block);
-              console.log(playerTop);
-              console.log(blockLeft);
-              this.i++;
-              return this.comparePositions(blockLeft, playerTop);
-            }, 1000)
-          }
-        }
-      }).mount("#app");
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+      import MyComponent from './main.js'
+    
+      createApp(MyComponent).mount('#app')
     </script>
+    
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+    <!-- <script type="application/javascript" src="../main.js"></script> -->
   </body>
 </html>
