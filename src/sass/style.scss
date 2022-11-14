@@ -26,19 +26,25 @@ body {
 
 header {
     width:100%;
-    margin-bottom:5rem;
+    padding:2rem;
+    background:white;
     .container {
         width:100%;
         max-width:1400px;
-        border:none;
         background:white;
+        border:none;
         .navbar {
+            width:90%;
             padding:2rem;
-            width:50%;
             border:5px solid $Black;
+            display:flex;
+            justify-content: flex-end;
             .navbar-nav{
                 display:flex;
+                justify-content: flex-end;
                 gap:3rem;
+                margin-left:0 auto;
+                
                 &:first-child {
                     margin-left:auto;
                 }
@@ -50,10 +56,13 @@ header {
         justify-content:center;
     }
 }
+main {
+    margin:5rem 0;
+}
 
 h1 {
     font-size:1.9em;
-    color:$Yellow;
+    color:$BeeYellow;
     margin-bottom:0;
 }
 .logo {
@@ -66,23 +75,22 @@ h1 {
 }
 
 .logo::before {
-   content: "\f135";
-   font-family: "Font Awesome 5 Free";
-   font-style: normal;
-   font-weight: 900;
-   text-decoration: inherit;
+    content: "\f135";
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 900;
+    text-decoration: inherit;
 }
-
 .start-popup {
     width:100%;
     height:100%;
     max-height:600px;
     background:$White;
     color:$White;
-    padding: 1rem;
-    margin: 0 auto;
+    opacity:1;
     display:flex;
     justify-content: center;
+    align-items: center;
     text-align:center;
     position: absolute;
     z-index:1;
@@ -98,30 +106,30 @@ h1 {
         padding:1rem 0;
         background:$White;
         border:none;
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         text-transform: uppercase;
         font-weight: 600;
         text-align: center;
         border-radius: 20px;
         color:$Black;
-        border:5px solid $Yellow;
+        border:5px solid $BeeYellow;
         z-index:2;
         &:hover {
-            background:$Yellow;
+            background:$BeeYellow;
             color:$White;
             
         }
     }
-   
+    
 }
 
-.close {
+.close{
     display:hidden;
     opacity:0;
     height: 0;
     padding:0;
 }
 
+footer {
+    width:100%;
+    background:$Black;
+}

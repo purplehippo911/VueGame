@@ -15,9 +15,7 @@ export default {
   methods: {
     start() {
       this.$refs.start.classList.add("close");
-      this.$refs.startButton.classList.add("close");
-      this.$refs.block.style.display = "flex";
-      // this.$refs.block.classList.add("animate-block");
+      this.$refs.block.style.display = "block";
       this.NotPlaying = true;
       this.score = 0;
       this.endGame();
@@ -76,6 +74,7 @@ export default {
         console.log('touching!')
         this.$refs.block.style.animation = "none";
         this.$refs.start.classList.remove("close");
+        this.$refs.startButton.classList.add("close");
         this.title = "Game Over";
         this.content = "";
         this.buttonText = "Try Again";
@@ -97,6 +96,9 @@ export default {
       this.start();
       this.endGame();
       this.$refs.block.style.animation = "blockMove 2s infinite linear";
+    },
+    playerShoot() {
+      this.score +=2;
     }
   }
 };
