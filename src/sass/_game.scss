@@ -3,6 +3,7 @@
 #game {
     width:100%;
     height:300px;
+    position:relative;
     background:$White;
     display:flex;
     gap:2rem;
@@ -31,11 +32,35 @@
     border-radius:20px;
     position:absolute;
     left:650px;
-    animation:blockMove 2s infinite linear;    
-      display:none;
+    animation:blockMove 2s infinite linear;
+    display:flex;    
+    display:none;
+    justify-content: space-between;
+    .stripe {
+        background:black;
+        padding:.5rem;
+    }
     }
     
     // .animate-block {
         //     display:block;
         // }
+        
+    .score {
+        color:$Yellow;
+        padding:.1rem;
+        font-size:2.0em;
+        position:absolute;
+        top:0;
+        right:0;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &::after{
+            background:$Black;
+            content: "";
+            padding:.2rem .8rem;
+        }
+    }
 }
