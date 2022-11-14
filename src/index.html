@@ -76,10 +76,8 @@
             setInterval(() => {
               let playerTop = this.getPositions(this.$refs.player);
               let blockLeft = this.getPositions(this.$refs.block);
-              console.log(playerTop);
-              console.log(blockLeft);
-              this.i++;
               return this.comparePositions(blockLeft, playerTop);
+              this.$refs.start.classList.remove("close");
             }, 1000)
           }
         }
