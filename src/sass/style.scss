@@ -15,10 +15,6 @@ body {
     overflow-x:hidden;
 }
 
-#app {
-    padding:5rem;
-}
-
 .container {
     width:100%;
     max-width:800px;
@@ -28,13 +24,54 @@ body {
     border:20px solid $Black;
 }
 
+header {
+    width:100%;
+    margin-bottom:5rem;
+    .container {
+        width:100%;
+        max-width:1400px;
+        border:none;
+        background:white;
+        .navbar {
+            padding:2rem;
+            width:50%;
+            border:5px solid $Black;
+            .navbar-nav{
+                display:flex;
+                gap:3rem;
+                &:first-child {
+                    margin-left:auto;
+                }
+            }
+        }
+    }
+    .row {
+        display:flex;
+        justify-content:center;
+    }
+}
+
 h1 {
     font-size:1.9em;
     color:$Yellow;
     margin-bottom:0;
 }
+.logo {
+    width:10%;
+    margin:0 auto;
+    margin-left:auto;
+    text-decoration: none;
+    color:$Black;
+    text-align: center;
+}
 
-
+.logo::before {
+   content: "\f135";
+   font-family: "Font Awesome 5 Free";
+   font-style: normal;
+   font-weight: 900;
+   text-decoration: inherit;
+}
 
 .start-popup {
     width:100%;
