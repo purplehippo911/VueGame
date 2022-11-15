@@ -3,7 +3,7 @@ export default {
     return {
       message: "Hello Vue!",
       i: 0,
-      title:"The flight from the blockbee",
+      title:"Flight from the bumblebee",
       buttonText:"Start",
       content:`Help Sweet Liquor to flee from the thirsty bees. Use the spacebar to jump. 
       Later on you will get a gun,
@@ -57,6 +57,13 @@ export default {
         )*/
         if(blockLeft< 350 && blockLeft > 0 && playerTop >= 236)
         {
+
+      let rect1 = this.$refs.player.getBoundingClientRect();
+      let rect2 = this.$refs.block.getBoundingClientRect();
+      let top = rect1.top - this.$refs.game.offsetHeight;
+      let pos1 = rect1.left - this.$refs.game.offsetWidth
+      let pos2 = rect2.left - this.$refs.game.offsetWidth;
+      if(pos1 <= -94.39999389648438 && pos2 <= -11.8499755859375 && top > 205.6){
         console.log('touching!')
         block.style.animation = "none";
         this.$refs.start.classList.remove("close");
@@ -73,9 +80,12 @@ export default {
         document.write(pos1);
         document.write(pos2);
         console.log("Touches nothing!")
-        console.log(rect1);
-        console.log(rect2);
+        console.log(pos1);
+        console.log(pos2);
       } 
+      this.score +=2;
+      console.log(rect1);
+      console.log(rect2);
     }, 1500)
     checkTouch;
     },
@@ -86,7 +96,9 @@ export default {
       this.$refs.block.style.animation = "blockMove 2s infinite linear";
     },
     playerShoot() {
+      console.log("Shooting");
       this.score +=2;
+      this.$refs.gunAudio.play();
     }
   }
 };
