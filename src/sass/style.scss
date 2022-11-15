@@ -60,6 +60,10 @@ main {
     margin:5rem 0;
 }
 
+svg, img {
+    max-width:100%;
+}
+
 h1 {
     font-size:1.9em;
     color:$BeeYellow;
@@ -129,7 +133,36 @@ h1 {
     padding:0;
 }
 
+.button-wrapper {
+    width: 100%;
+    padding:5rem;
+    display:flex;
+    gap:2rem;
+    justify-content: center;
+    align-items: center;
+}
+
 footer {
     width:100%;
-    background:$Black;
+    padding:5rem;
+    background:$BeeYellow;
+    .row {
+        padding:3rem;
+        flex-direction:column;
+        background:$White;
+    }
+    .footer_list{
+        margin-left:0 auto;
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    li {
+        list-style: none;
+        background:$White;
+        max-width:30%;
+    }
+    a{
+        max-width:30%;
+    }
 }
