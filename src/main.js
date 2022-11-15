@@ -10,6 +10,7 @@ export default {
       use the left-arrow-key to shoot to the right, and right-arrow-key to shoot to the left.`,
       NotPlaying:false,
       score:0,
+      highscore:0
     };
   },
   methods: {
@@ -18,46 +19,20 @@ export default {
       this.$refs.block.style.display = "block";
       this.NotPlaying = true;
       this.score = 0;
+      if(localStorage.getItem("highscore"))
+          highscore = localStorage.getItem("highscore");
       this.endGame();
 
     },
     playerJump() {
       if(this.$refs.player.classList != "animate") {
         this.$refs.player.classList.add("animate");
+      }
         setTimeout(() => {
           this.$refs.player.classList.remove("animate");
-        }, 1000)
-      }
+        }, 500)
     },
-  //   getPositions(elem) {
-  //     var pos = elem.getBoundingClientRect();
-  //     var posArray = [pos.left, pos.top];
-  //     return posArray;
-  //   },
-  //   comparePositions(p1, p2) {
-  //     var r1, r2;
-  //     if (p1[0] <= 976.5 && p2[1] >= 210 || p1[0] <= 782 && p2[1] >= 114) {
-  //       r1 = p1;
-  //       r2 = p2;
-  //       this.$refs.block.style.animation = "none";
-  //       this.$refs.start.classList.remove("close");
-  //       this.title = "Game Over";
-  //       this.content = "";
-  //       this.buttonText = "Try Again";
-  //       console.log("Worked");
-  //       this.NotPlaying = true;
-  //     } else {
-  //       r1 = p2;
-  //       r2 = p1;
-  //       this.score+=2;
-  //       console.log("didnt work")
-  //     }
-  //   },
-  //   detectOverlap (a, b) {
-  //     var blockLeft = this.getPositions(this.$refs.block);
-  //     var playerTop = this.getPositions(this.$refs.player);
-  //     return comparePositions(blockLeft[0], playerTop[1 ]);
-  // },
+
   touches(elem1, elem2) {
     
     let rect1 = elem1.getBoundingClientRect();
@@ -67,23 +42,36 @@ export default {
     }
   },
   endGame() {
+    let player = document.querySelector("player");
+    let block = document.querySelector("player");
+    let pos1 = player.getBoundingClientRect();
+    let pos2 = block.getBoundingClientRect();
+
     var checkTouch = setInterval(() => {
-      var rect1 = this.$refs.player.getBoundingClientRect();
-      var rect2 = this.$refs.block.getBoundingClientRect();
-      if(rect1.top >= 255.1875 && rect2.x <= 963.6875){
+      var playerTop = parseInt(window.getComputedStyle(player).getPropertyValue("top"));
+      var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+      /*if(pos1.x < pos2.x + pos2.width &&
+        pos1.x + pos1.width > pos2.x &&
+        pos1.y < pos2.y + pos2.height &&
+        pos1.y + pos1.height > pos2.y
+        )*/
+        if(blockLeft< 350 && blockLeft > 0 && playerTop >= 236)
+        {
         console.log('touching!')
-        this.$refs.block.style.animation = "none";
+        block.style.animation = "none";
         this.$refs.start.classList.remove("close");
-        this.$refs.startButton.classList.add("close");
         this.title = "Game Over";
         this.content = "";
         this.buttonText = "Try Again";
-        console.log(rect1);
-        console.log(rect2);
+        window.localStorage.setItem("highscore", highscore);
+        document.write(pos1);
+        document.write(pos2);
         clearInterval(checkTouch);
-      }
+        }
       else {
         this.score +=2;
+        document.write(pos1);
+        document.write(pos2);
         console.log("Touches nothing!")
         console.log(rect1);
         console.log(rect2);

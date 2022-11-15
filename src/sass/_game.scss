@@ -29,7 +29,7 @@
 }
 
 .animate {
-    animation:jump 1s;
+    animation:jump 500ms;
 }
 
 
@@ -55,16 +55,23 @@
         padding:.1rem;
         font-size:2.0em;
         position:absolute;
-        top:0;
-        right:0;
+        left:0;
         display:flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        align-self:flex-start;
         &::after{
             background:$Black;
             content: "";
             padding:.2rem .8rem;
         }
+    }
+
+    .highscore {
+        @extend .score;
+        left: 690px;
+        float:top left;
+        color:$Black;
     }
 }
